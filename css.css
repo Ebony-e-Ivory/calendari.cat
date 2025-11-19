@@ -1,0 +1,90 @@
+/* === ESTILO GLASS === */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #fff 0%, #f6f6f6 100%);
+  padding: 40px;
+}
+
+.calendar-container {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  border: 1px solid rgba(224, 62, 82, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-width: 950px;
+  margin: auto;
+}
+
+.month-title {
+  background: rgba(224, 62, 82, 0.9);
+  color: #fff;
+  padding: 18px 0;
+  font-size: 1.9em;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(224, 62, 82, 0.6);
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th {
+  background: rgba(255, 255, 255, 0.6);
+  color: #666;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 0.85em;
+}
+
+.calendar td {
+  height: 120px;
+  vertical-align: top;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  transition: background 0.2s ease;
+}
+
+.calendar td:hover {
+  background: rgba(224, 62, 82, 0.05);
+}
+
+.event {
+  background: rgba(224, 62, 82, 0.9);
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85em;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.event:hover {
+  background: rgba(224, 62, 82, 1);
+  transform: scale(1.03);
+}
+
+/* === Imagen centrada y con estilo === */
+.imagen_programa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.imagen_programa img {
+  max-width: 100%;
+  max-height: 1200px;          /* ajusta según tu necesidad */
+  object-fit: contain;
+  border-radius: 16px;        /* igual que el contenedor */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
