@@ -1,90 +1,232 @@
-/* === ESTILO GLASS === */
+/* General */
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #fff 0%, #f6f6f6 100%);
-  padding: 40px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-.calendar-container {
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 20px;
-  border: 1px solid rgba(224, 62, 82, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  max-width: 950px;
-  margin: auto;
-}
-
-.month-title {
-  background: rgba(224, 62, 82, 0.9);
-  color: #fff;
-  padding: 18px 0;
-  font-size: 1.9em;
+/* Encabezado */
+.header {
+  background-color: #09548a;
+  color: white;
   text-align: center;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 2px solid rgba(224, 62, 82, 0.6);
+  padding: 20px;
 }
 
-.calendar {
-  width: 100%;
-  border-collapse: collapse;
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 15px;
 }
 
-.calendar th {
-  background: rgba(255, 255, 255, 0.6);
-  color: #666;
-  text-transform: uppercase;
-  padding: 10px;
-  font-size: 0.85em;
-}
-
-.calendar td {
-  height: 120px;
-  vertical-align: top;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 8px;
-  transition: background 0.2s ease;
-}
-
-.calendar td:hover {
-  background: rgba(224, 62, 82, 0.05);
-}
-
-.event {
-  background: rgba(224, 62, 82, 0.9);
-  color: #fff;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 0.85em;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s ease-in-out;
-}
-
-.event:hover {
-  background: rgba(224, 62, 82, 1);
-  transform: scale(1.03);
-}
-
-/* === Imagen centrada y con estilo === */
-.imagen_programa {
+/* Contenedor del calendario */
+.calendar-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px auto;
-  max-width: 800px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.imagen_programa img {
-  max-width: 100%;
-  max-height: 1200px;          /* ajusta según tu necesidad */
-  object-fit: contain;
-  border-radius: 16px;        /* igual que el contenedor */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+/* Título del mes */
+.month-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #09548a;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
+
+/* Tabla del calendario en escritorio */
+@media (min-width: 769px) {
+  .calendar-container {
+      align-items: center;
+  }
+
+  .calendar {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .calendar thead th {
+      background-color: #cfd8dc;
+      color: #333;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 2px solid #09548a;
+      font-size: 14px;
+  }
+
+  .calendar td {
+      width: 14.28%;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+      vertical-align: top;
+      position: relative;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      box-sizing: border-box;
+  }
+
+  .calendar td.grey {
+      background-color: #f0f0f0;
+  }
+
+  .calendar td:hover {
+      background-color: #e0f7fa;
+  }
+
+  .day-number {
+      font-weight: bold;
+      font-size: 14px;
+      color: #09548a;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+  }
+
+  .event {
+      font-size: 12px;
+      margin-top: 5px;
+      padding: 5px 10px;
+      background-color: #e0f7fa;
+      color: #09548a;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .event:hover {
+      background-color: #09548a;
+      color: #ffffff;
+  }
+
+
+  /* Contenedor de las imágenes */
+  .imagen_programa {
+      display: none;
+      margin-top: 20px;
+      max-width: 800px;
+      /* Alinea el tamaño con el calendario */
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  }
+
+  .imagen_programa img {
+      width: 100%;
+      height: auto;
+  }
+}
+
+/* Ocultar .day-of-week solo en versión de escritorio */
+@media (min-width: 769px) {
+  .day-text {
+      display: none;
+  }
+}
+
+/* Estilo móvil inspirado en el calendario de Apple */
+@media (max-width: 768px) {
+  .calendar-container {
+      padding: 10px;
+      /* Reducir el padding para aprovechar el espacio en pantalla */
+  }
+
+  .month-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      color: #09548a;
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+
+  .calendar {
+      display: column;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  /* Ocultar el encabezado de días de la semana en móvil */
+  .calendar thead {
+      display: none;
+  }
+
+  /* Ocultar completamente los días sin eventos en móvil */
+  .calendar td:empty,
+  .calendar td:not(:has(.event)) {
+      display: none;
+  }
+
+  .calendar td {
+      background-color: #ffffff;
+      padding: 10px;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+
+      justify-content: flex-start;
+      position: relative;
+      border: none;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      width: 100%;
+      /* Asegura que cada día ocupe el 100% del ancho */
+  }
+
+  /* Número del día en móvil */
+  .day-number {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+  }
+
+  /* Eventos en estilo Apple */
+  .event {
+      font-size: 14px;
+      margin: 2px 0;
+      padding: 4px 8px;
+      background-color: #e0f7fa;
+      color: #09548a;
+      border-radius: 4px;
+      text-align: left;
+      font-weight: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+  }
+
+
+  /* Contenedor de las imágenes */
+  .imagen_programa {
+      display: none;
+      margin-top: 20px;
+      max-width: 800px;
+      /* Alinea el tamaño con el calendario */
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  }
+
+  .imagen_programa img {
+      width: 100%;
+      height: auto;
+  }
+
