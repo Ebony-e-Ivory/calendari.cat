@@ -48,7 +48,7 @@ body {
 
   .calendar {
       width: 100%;
-      max-width: 800px;
+      max-width: 800px; width: 100%;
       border-collapse: collapse;
       margin-bottom: 30px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,8 +65,8 @@ body {
   }
 
   .calendar td {
-      width: 14.28%;
-      padding: 10px;
+      width: 14.28%; max-width: 14.28%;
+      padding: 6px;
       border: 1px solid #e0e0e0;
       text-align: left;
       vertical-align: top;
@@ -94,9 +94,9 @@ body {
   }
 
   .event {
-      font-size: 12px;
-      margin-top: 5px;
-      padding: 5px 10px;
+      font-size: 10px;
+      margin-top: 2px;
+      padding: 2px 6px;
       background-color: #e0f7fa;
       color: #09548a;
       text-align: center;
@@ -105,6 +105,10 @@ body {
       border-radius: 4px;
       transition: background-color 0.2s ease, color 0.2s ease;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%; line-height: 1.2;
   }
 
   .event:hover {
@@ -117,7 +121,7 @@ body {
   .imagen_programa {
       display: none;
       margin-top: 20px;
-      max-width: 800px;
+      max-width: 800px; width: 100%;
       /* Alinea el tamaño con el calendario */
       width: 100%;
       margin-left: auto;
@@ -141,7 +145,7 @@ body {
 /* Estilo móvil inspirado en el calendario de Apple */
 @media (max-width: 768px) {
   .calendar-container {
-      padding: 10px;
+      padding: 6px;
       /* Reducir el padding para aprovechar el espacio en pantalla */
   }
 
@@ -173,7 +177,7 @@ body {
 
   .calendar td {
       background-color: #ffffff;
-      padding: 10px;
+      padding: 6px;
       min-height: 80px;
       display: flex;
       flex-direction: column;
@@ -198,9 +202,9 @@ body {
 
   /* Eventos en estilo Apple */
   .event {
-      font-size: 14px;
+      font-size: 10px;
       margin: 2px 0;
-      padding: 4px 8px;
+      padding: 2px 6px;
       background-color: #e0f7fa;
       color: #09548a;
       border-radius: 4px;
@@ -209,7 +213,7 @@ body {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      max-width: 100%;
+      max-width: 100%; line-height: 1.2;
   }
 
 
@@ -217,7 +221,7 @@ body {
   .imagen_programa {
       display: none;
       margin-top: 20px;
-      max-width: 800px;
+      max-width: 800px; width: 100%;
       /* Alinea el tamaño con el calendario */
       width: 100%;
       margin-left: auto;
@@ -229,4 +233,4 @@ body {
       width: 100%;
       height: auto;
   }
-
+}
