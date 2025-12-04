@@ -297,9 +297,32 @@
       }, 100);
     }
 
-    // Executar l'ordenació quan la pàgina s'hagi carregat completament
+    // Funció per a fer scroll al mes actual (desembre 2025)
+    function scrollToCurrentMonth() {
+      // Buscar el mes de desembre 2025
+      const months = document.querySelectorAll('.month-title');
+      const currentMonth = Array.from(months).find(month =>
+        month.textContent.includes('Desembre 2025')
+      );
+
+      if (currentMonth) {
+        // Hacer scroll al contenedor del mes (no al título directamente)
+        const monthContainer = currentMonth.closest('.month-container');
+        if (monthContainer) {
+          setTimeout(() => {
+            monthContainer.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 200); // Pequeña demora para asegurar que todo esté cargado
+        }
+      }
+    }
+
+    // Executar l'ordenació i després el scroll al mes actual
     document.addEventListener('DOMContentLoaded', function() {
       ordenarEsdeveniments();
+      scrollToCurrentMonth();
     });
   </script>
 
